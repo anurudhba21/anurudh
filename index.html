@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anurudh B A - Professional Resume</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --text-color: #333;
+            --background-color: #f5f6fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-info h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-info p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            transform: scale(1.1);
+        }
+
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 1.5rem 1rem;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .experience-item h3,
+        .project-item h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .date-location {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        .chatbot-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            background-color: #f9f9f9;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .chatbot-input input {
+            flex-grow: 1;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 0.5rem;
+        }
+
+        .chatbot-input button {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .chatbot-input button:hover {
+            background: #2980b9;
+        }
+
+        .chat-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--secondary-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease;
+        }
+
+        .chat-toggle:hover {
+            background: #2980b9;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem;
+            }
+
+            .profile-info h1 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .chatbot-container {
+                width: 90%;
+                height: 70%;
+                bottom: 10px;
+                right: 5%;
+            }
+
+            .chat-toggle {
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="profile-info">
+            <h1>Anurudh B A</h1>
+            <p>Customer Success Executive | Data & AI Specialist</p>
+            <div class="contact-info">
+                <a href="mailto:anurudhba21@gmail.com">
+                    <i class="fas fa-envelope"></i> anurudhba21@gmail.com
+                </a>
+                <a href="tel:9486873493">
+                    <i class="fas fa-phone"></i> 9486873493
+                </a>
+                <a href="https://linkedin.com/in/anurudh-b-a-37b121139/">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/anurudhba21">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <main>
+            <section class="section">
+                <h2>Summary</h2>
+                <p>Experienced Customer Success Executive with a strong background in IBM Data & AI, Business Automation, and IT Automation. Proven expertise in managing the end-to-end sales process, from prospecting to closing deals, while ensuring client satisfaction and long-term engagement.</p>
+            </section>
+    
+            <section class="section">
+                <h2>Experience</h2>
+                <div class="experience-item">
+                    <h3>Customer Success Executive</h3>
+                    <div class="date-location">SBA info Solution | April 2024 - October 2024 | Chennai</div>
+                    <ul>
+                        <li>Lead and manage the end-to-end sales process, ensuring 100% customer satisfaction</li>
+                        <li>Work with IBM products including Watsonx, Watson Orchestrate, IBM Instana, IBM DataCap</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Data Annotator</h3>
+                    <div class="date-location">Lesoko technology | August 2023 - October 2023 | Chennai</div>
+                    <ul>
+                        <li>Contributed to solar panel image annotation and object detection project</li>
+                        <li>Documented annotation procedures and provided insights for optimization</li>
+                    </ul>
+                </div>
+            </section>
+    
+            <section class="section">
+                <h2>Projects</h2>
+                <div class="project-item">
+                    <h3>Walmart Superstore Sales Analysis</h3>
+                    <p>Developed interactive Power BI dashboard for business metrics visualization</p>
+                    <div class="skills">
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">DAX</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Excel</span>
+                    </div>
+                </div>
+            </section>
+    
+            <section class="section">
+                <h2>Education</h2>
+                <div class="experience-item">
+                    <h3>Master of Business Administration in Business Analytics</h3>
+                    <div class="date-location">SRM Institute of Science and Technology | 2023</div>
+                    <p>CGPA: 8.58</p>
+                </div>
+                <div class="experience-item">
+                    <h3>B.Sc Computer Science</h3>
+                    <div class="date-location">SRM Institute of Science and Technology | 2018</div>
+                </div>
+            </section>
+    
+            <section class="section">
+                <h2>Certifications</h2>
+                <div class="experience-item">
+                    <h3>IBM Watsonx.ai Sales Foundation</h3>
+                    <div class="date-location">IBM Data and AI | 2024</div>
+                </div>
+                <div class="experience-item">
+                    <h3>IBM Watson Assistant Sales Foundation</h3>
+                    <div class="date-location">IBM Data and AI | 2024</div>
+                </div>
+            </section>
+        </main>
+    
+    </main>
+
+    <div class="chat-toggle" onclick="toggleChat()">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <span>AI Assistant</span>
+            <i class="fas fa-times" onclick="toggleChat()"></i>
+        </div>
+        <div class="chatbot-messages" id="chatMessages"></div>
+        <div class="chatbot-input">
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <script>
+        let chatVisible = false;
+    
+        function toggleChat() {
+            const chatbot = document.querySelector('.chatbot-container');
+            chatVisible = !chatVisible;
+            chatbot.style.display = chatVisible ? 'flex' : 'none';
+    
+            if (chatVisible) {
+                setTimeout(() => {
+                    addBotMessage("Hi! I'm your AI assistant. How can I help you learn more about Anurudh's experience, career break, or joining details?");
+                    showSuggestedQuestions();  // Show suggested questions after greeting
+                }, 500); // Delay to simulate typing
+            }
+        }
+    
+        function addMessage(message, isBot = true) {
+            const messagesDiv = document.getElementById('chatMessages');
+            const messageElement = document.createElement('div');
+            messageElement.style.background = isBot ? '#f0f0f0' : '#3498db';
+            messageElement.style.color = isBot ? '#333' : 'white';
+            messageElement.style.padding = '0.5rem';
+            messageElement.style.borderRadius = '10px';
+            messageElement.style.marginBottom = '0.5rem';
+            messageElement.style.maxWidth = '80%';
+            messageElement.style.alignSelf = isBot ? 'flex-start' : 'flex-end';
+            messageElement.textContent = message;
+            messagesDiv.appendChild(messageElement);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+    
+        function addBotMessage(message) {
+            // Simulate bot typing delay
+            const messagesDiv = document.getElementById('chatMessages');
+            const typingIndicator = document.createElement('div');
+            typingIndicator.textContent = 'Typing...';
+            typingIndicator.style.fontStyle = 'italic';
+            typingIndicator.style.color = '#666';
+            typingIndicator.style.marginBottom = '0.5rem';
+            messagesDiv.appendChild(typingIndicator);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    
+            setTimeout(() => {
+                messagesDiv.removeChild(typingIndicator);
+                addMessage(message, true);
+            }, 1000); // Adjust delay for typing effect
+        }
+    
+        function addUserMessage(message) {
+            addMessage(message, false);
+        }
+    
+        async function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            if (message) {
+                addUserMessage(message);
+                input.value = '';
+    
+                // Simulate bot response
+                setTimeout(() => {
+                    handleBotResponse(message);
+                }, 1000); // Delay for a realistic chat feel
+            }
+        }
+    
+        function handleBotResponse(userMessage) {
+            // Enhanced responses to specific questions
+            const lowerCaseMessage = userMessage.toLowerCase();
+            if (lowerCaseMessage.includes('skills')) {
+                addBotMessage("Anurudh is skilled in AI, IBM Watsonx, and business analytics. Would you like to know more about his certifications?");
+            } else if (lowerCaseMessage.includes('experience')) {
+                addBotMessage("Anurudh has worked as a Customer Success Executive at SBA Info Solutions and as a Data Annotator at Lesoko Technology.");
+            } else if (lowerCaseMessage.includes('projects')) {
+                addBotMessage("Anurudh worked on solar panel image annotation and developed modular AI solutions tailored to enterprises. Need more details?");
+            } else if (lowerCaseMessage.includes('career break')) {
+                addBotMessage("During his career break, Anurudh prepared for government exams, demonstrating dedication and focus. Would you like to know about his learning experiences during this time?");
+            } else if (lowerCaseMessage.includes('notice period') || lowerCaseMessage.includes('join')) {
+                addBotMessage("Anurudh is available to join immediately. Do you need any further details?");
+            } else {
+                addBotMessage("I'm here to assist! Please ask about skills, experience, projects, career break, or notice period.");
+            }
+        }
+    
+        function showSuggestedQuestions() {
+            const suggestionsDiv = document.getElementById('suggestions');
+            const questions = [
+                "What are Anurudh's skills?",
+                "Tell me about Anurudh's work experience.",
+                "What projects has Anurudh worked on?",
+                "What did Anurudh do during his career break?",
+                "When is Anurudh available to join?"
+            ];
+    
+            suggestionsDiv.innerHTML = '';  // Clear previous suggestions
+    
+            questions.forEach(question => {
+                const button = document.createElement('button');
+                button.classList.add('suggested-question');
+                button.textContent = question;
+                button.onclick = () => {
+                    addUserMessage(question);
+                    handleBotResponse(question);
+                };
+                suggestionsDiv.appendChild(button);
+            });
+        }
+    
+        // Add "Enter" key functionality for sending messages
+        document.addEventListener('DOMContentLoaded', () => {
+            const input = document.getElementById('userInput');
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
