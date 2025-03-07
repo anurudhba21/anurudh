@@ -1,633 +1,1090 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Anurudh B A - Professional Resume</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-        <style>
-:root {
-    --primary-color: #1a252f; /* Dark Blue */
-    --secondary-color: #00796b; /* Teal */
-    --accent-color: #f39c12; /* Gold */
-    --text-color: #333; /* Dark Gray */
-    --background-color: #f5f6fa; /* Light Gray */
-    --hover-color: #e67e22; /* Orange */
-    --shadow-color: rgba(0, 0, 0, 0.15); /* Light shadow */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anurudh B.A. - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #f8f9fa;
+            --dark-color: #333;
+            --light-color: #fff;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: var(--light-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .navbar-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .navbar-links {
+            display: flex;
+        }
+        
+        .navbar-links li {
+            margin-left: 30px;
+        }
+        
+        .navbar-links a {
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .navbar-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .navbar-links a:hover::after {
+            width: 100%;
+        }
+        
+        .navbar-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: var(--light-color);
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .profile-image-container {
+            flex-shrink: 0;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero h3 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .hero-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            font-weight: 500;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+        
+        .hero-btn:hover {
+            background-color: #0055aa;
+            transform: translateY(-3px);
+        }
+        
+        .hero-social {
+            margin-top: 40px;
+            display: flex;
+        }
+        
+        .hero-social a {
+            margin-right: 15px;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .hero-social a:hover {
+            color: #0055aa;
+            transform: translateY(-3px);
+        }
+        
+        /* Sections */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section:nth-child(even) {
+            background-color: var(--light-color);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .about-text {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: var(--light-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Education Section */
+        .education-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: var(--light-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .education-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+        
+        .education-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .education-item h4 {
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .education-year {
+            margin-top: 10px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 10px;
+            background-color: var(--light-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+        
+        .experience-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .experience-item h4 {
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .experience-duration {
+            margin-top: 10px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .experience-list {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+        
+        .experience-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .experience-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-item {
+            padding: 25px;
+            border-radius: 10px;
+            background-color: var(--light-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-item h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .project-item p {
+            margin-bottom: 10px;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            padding: 25px;
+            border-radius: 10px;
+            background-color: var(--light-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            color: var(--primary-color);
+        }
+        
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-item {
+            padding: 8px 15px;
+            background-color: #e9f2fd;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Certifications Section */
+        .certifications-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .certification-item {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: var(--light-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .certification-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .certification-item i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .certification-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .contact-text h3 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            background-color: #0055aa;
+            transform: translateY(-3px);
+        }
+        
+        /* Chat Assistant */
+        .chat-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background-color: var(--light-color);
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            z-index: 999;
+            transition: var(--transition);
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        
+        .chat-container.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .chat-header {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chat-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .chat-title i {
+            font-size: 1.2rem;
+        }
+        
+        .chat-title h3 {
+            font-size: 1.2rem;
+        }
+        
+        .chat-toggle {
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+        
+        .chat-body {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .chat-message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 0.95rem;
+            position: relative;
+        }
+        
+        .chat-message.assistant {
+            align-self: flex-start;
+            background-color: #f1f1f1;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .chat-message.user {
+            align-self: flex-end;
+            background-color: #e3f2fd;
+            color: #333;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .chat-suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .suggestion-btn {
+            padding: 8px 12px;
+            background-color: #f1f1f1;
+            border: none;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .suggestion-btn:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .chat-input {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+            font-size: 0.95rem;
+        }
+        
+        .chat-input button {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .chat-input button:hover {
+            background-color: #0055aa;
+        }
+        
+        .chat-toggle-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .chat-toggle-btn:hover {
+            background-color: #0055aa;
+            transform: scale(1.05);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 991px) {
+            .navbar-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--light-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-150%);
+                transition: var(--transition);
+                opacity: 0;
+            }
+            
+            .navbar-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .navbar-links li {
+                margin: 15px 0;
+            }
+            
+            .navbar-toggle {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 30px;
+            }
+            
+            .hero-social {
+                justify-content: center;
+            }
+            
+            .profile-image-container {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .chat-container {
+                width: 300px;
+                height: 450px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 70px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero h3 {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .profile-image-container {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .chat-container {
+                width: 280px;
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .projects-grid,
+            .skills-container,
+            .certifications-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-image-container {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .chat-container {
+                width: 100%;
+                height: 50vh;
+                bottom: 0;
+                right: 0;
+                border-radius: 15px 15px 0 0;
+            }
+            
+            .chat-toggle-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        /* Certifications Section */
+.certifications-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, sans-serif;
-}
-
-body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    line-height: 1.8;
-    scroll-behavior: smooth;
-}
-
-/* Header styling */
-header {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    padding: 3rem 1rem;
-    text-align: center;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    box-shadow: 0 8px 16px var(--shadow-color);
-    animation: fadeIn 1s ease-out;
-}
-
-header h1 {
-    font-size: 3rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-header p {
-    font-size: 1.2rem;
-    margin-top: 1rem;
-    opacity: 0.9;
-}
-
-/* Profile container - flexbox layout */
-.profile-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 2rem auto;
-    flex-wrap: wrap;
-    padding: 1rem;
-    animation: slideIn 1s ease-out;
-    background-color: white; /* White background for profile section */
+.certification-item {
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 6px 12px var(--shadow-color);
-}
-
-/* Profile photo styling */
-.profile-photo {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid var(--background-color);
-    box-shadow: 0 6px 12px var(--shadow-color);
+    background: linear-gradient(135deg, #f8f9fa, #e3f2fd);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
-.profile-photo:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Profile text styling */
-.profile-info h1 {
-    font-size: 2.8rem;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-}
-
-.profile-info p {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    opacity: 0.9;
-    color: var(--text-color);
-}
-
-/* Contact info styling */
-.contact-info {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.contact-info a {
-    color: white;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: transform 0.3s ease, color 0.3s ease;
-    font-size: 1.1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    background: var(--accent-color);
-    box-shadow: 0 4px 8px var(--shadow-color);
-}
-
-.contact-info a:hover {
-    transform: scale(1.1);
-    background: var(--hover-color);
-}
-
-.contact-info i {
-    font-size: 1.5rem;
-}
-
-/* Section styling */
-.section {
-    background: white;
-    border-radius: 10px;
-    padding: 2rem;
-    margin: 1.5rem 1rem;
-    box-shadow: 0 6px 10px var(--shadow-color);
-    transition: transform 0.3s ease;
-    animation: fadeInUp 1s ease-out;
-}
-
-.section:hover {
+.certification-item:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.section h2 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 0.5rem;
-}
-
-/* Skills styling */
-.skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.skill-tag {
-    background: var(--secondary-color);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    transition: background 0.3s ease;
-    box-shadow: 0 4px 8px var(--shadow-color);
-}
-
-.skill-tag:hover {
-    background: var(--accent-color);
-}
-
-/* Chatbot styling */
-.chatbot-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 350px;
-    height: 500px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 6px 10px var(--shadow-color);
-    display: none;
-    flex-direction: column;
-    z-index: 1000;
-    animation: fadeInUp 0.5s ease-out;
-}
-
-.chatbot-header {
-    background: var(--primary-color);
-    color: white;
-    padding: 1rem;
-    border-radius: 10px 10px 0 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.certification-item h3 {
     font-size: 1.2rem;
-}
-
-#suggestions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    max-height: 200px;
-    overflow-y: auto;
-}
-
-.suggested-question {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 8px 15px;
-    margin: 5px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease;
-}
-
-.suggested-question:hover {
-    background-color: #2980b9;
-}
-
-.chatbot-messages {
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    overflow-y: auto;
-    flex-grow: 1;
-}
-
-.bot-message, .user-message {
-    max-width: 80%;
+    color: #0066cc;
     margin-bottom: 10px;
-    padding: 10px 15px;
-    border-radius: 15px;
 }
 
-.bot-message {
-    background-color: #e6f2ff;
-    color: #333;
-    align-self: flex-start;
+.certification-item i {
+    font-size: 2rem;
+    color: #0066cc;
+    margin-bottom: 10px;
 }
 
-.user-message {
-    background-color: #3498db;
-    color: white;
-    align-self: flex-end;
-    margin-left: auto;
-}
-
-.chatbot-input {
-    display: flex;
-    padding: 1rem;
-    border-top: 1px solid #eee;
-}
-
-.chatbot-input input {
-    flex-grow: 1;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-right: 0.5rem;
-}
-
-.chatbot-input button {
-    background: var(--secondary-color);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.chatbot-input button:hover {
-    background: var(--accent-color);
-}
-
-/* Chatbot toggle button styling */
-.chat-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: var(--secondary-color);
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 6px var(--shadow-color);
-    transition: background 0.3s ease;
-}
-
-.chat-toggle:hover {
-    background: var(--hover-color);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    header {
-        padding: 1.5rem;
-    }
-
-    .profile-info h1 {
-        font-size: 2rem;
-    }
-
-    .contact-info {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .section {
-        padding: 1.5rem;
-    }
-
-    .chatbot-container {
-        width: 90%;
-        height: 70%;
-        bottom: 10px;
-        right: 5%;
-    }
-
-    .chat-toggle {
-        bottom: 10px;
-        right: 10px;
-    }
-}
-
-        </style>
-    </head>
-    <body>
-        <header>
-            <div class="profile-container">
-                <img src="anurudh.jpeg" alt="Anurudh B A" class="profile-photo">
-                <div class="profile-info">
-                    <h1>Anurudh B A</h1>
-                    <p>Customer Success Executive | Data & AI Specialist</p>
-                    <div class="contact-info">
-                        <a href="mailto:anurudhba21@gmail.com">
-                            <i class="fas fa-envelope"></i> anurudhba21@gmail.com
-                        </a>
-                        <a href="tel:9486873493">
-                            <i class="fas fa-phone"></i> 9486873493
-                        </a>
-                        <a href="https://linkedin.com/in/anurudh-b-a-37b121139/">
-                            <i class="fab fa-linkedin"></i> LinkedIn
-                        </a>
-                        <a href="https://github.com/anurudhba21">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                    </div>
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="#home" class="navbar-logo">Anurudh B.A.</a>
+            <div class="navbar-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="navbar-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content fade-in">
+            <div class="hero-text">
+                <h1>ANURUDH B.A.</h1>
+                <h3>Customer Success Executive | Business Analytics Specialist</h3>
+                <p>Results-driven Customer Success Executive with expertise in business analytics, AI-driven solutions, and end-to-end sales management. Skilled in gathering client use cases, collaborating with technical teams, and delivering tailored proof-of-concept solutions using IBM products like Watsonx, IBM Instana, and Cognos.</p>
+                <a href="#contact" class="hero-btn">Contact Me</a>
+                <div class="hero-social">
+                    <a href="mailto:your-email@example.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/your-linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/your-github" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="tel:+919486873493"><i class="fas fa-phone"></i></a>
                 </div>
             </div>
-        </header>
-        <main>
-            <section class="section">
-                <h2>Summary</h2>
-                <p>Experienced Customer Success Executive with a strong background in IBM Data & AI, Business Automation, and IT Automation.
-                    Proven expertise in managing the end-to-end sales process, from prospecting to closing deals, while ensuring client satisfaction and long-term engagement. 
-                    Skilled in leveraging IBM technologies like Watsonx, Watson Orchestrate, IBM Instana, and IBM DataCap to drive digital transformation. 
-                    Proficient in Power BI, SQL, and data analytics, with hands-on experience in developing interactive dashboards and optimizing business processes through real-time projects.</p>
-            </section>
+            <div class="profile-image-container">
+                <img src=""C:\Users\anuru\Documents\Anurudh resume\WhatsApp Image 2025-02-14 at 16.38.19_2489b99f.jpg"" alt="Anurudh B.A." class="profile-image">
 
-            <section class="section">
-                <h2>Experience</h2>
-                <div class="experience-item">
-                    <h3>Customer Success Executive</h3>
-                    <div class="date-location">SBA Info Solution | April 2024 - October 2024 | Chennai</div>
-                    <ul>
-                        <li>Lead and manage the end-to-end sales process, ensuring 100% customer satisfaction and long-term partnerships.</li>
-                        <li>Work with IBM products including Watsonx, Watson Orchestrate, IBM Instana, and IBM DataCap, tailoring solutions to meet client needs and drive digital transformation.</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <h3>Data Annotator</h3>
-                    <div class="date-location">Lesoko Technology | August 2023 - October 2023 | Chennai</div>
-                    <ul>
-                        <li>Contributed to a project involving solar panel image annotation and object detection, gaining hands-on experience in computer vision techniques.</li>
-                        <li>Documented annotation procedures and results, providing valuable insights for project evaluation and future optimizations.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>Projects</h2>
-                <div class="project-item">
-                    <h3>Walmart Superstore Sales Analysis</h3>
-                    <p>Developed interactive Power BI dashboard for business metrics visualization</p>
-                    <div class="skills">
-                        <span class="skill-tag">Power BI</span>
-                        <span class="skill-tag">DAX</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Excel</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <div class="section-title">
                 <h2>Education</h2>
-                <div class="experience-item">
-                    <h3>Master of Business Administration in Business Analytics</h3>
-                    <div class="date-location">SRM Institute of Science and Technology | 2023</div>
-                    <p>CGPA: 8.58</p>
+            </div>
+            <div class="education-content">
+                <div class="education-item fade-in">
+                    <h3>MBA in Business Analytics</h3>
+                    <h4>SRM Institute of Science and Technology</h4>
+                    <p class="education-year">2023</p>
                 </div>
-                <div class="experience-item">
-                    <h3>B.Sc Computer Science</h3>
-                    <div class="date-location">SRM Institute of Science and Technology | 2018</div>
+                <div class="education-item fade-in">
+                    <h3>BSc in Computer Science</h3>
+                    <h4>SRM Institute of Science and Technology</h4>
+                    <p class="education-year">2018</p>
                 </div>
-            </section>
-
-            <section class="section">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience</h2>
+            </div>
+            <div class="experience-content">
+                <div class="experience-item fade-in">
+                    <h3>Customer Success Executive</h3>
+                    <h4>SBA Info Solution</h4>
+                    <p class="experience-duration">April 2024 - October 2024</p>
+                    <ul class="experience-list">
+                        <li>Oversaw the entire sales cycle, from prospecting to deal closure, ensuring 100% customer satisfaction and fostering long-term partnerships.</li>
+                        <li>Leverage expertise in IBM products such as Watsonx, Watson Orchestrate, IBM Instana, and IBM DataCap to customize solutions that drive digital transformation and meet client requirements.</li>
+                        <li>Managed the entire sales process by gathering use cases from clients and collaborating cross-functionally with the technical team to develop and deliver proof of concept solutions.</li>
+                        <li>Gathered use cases from clients and provided tailored solutions to address their specific needs.</li>
+                    </ul>
+                    <h4>Key Use Cases Worked On:</h4>
+                    <ul class="experience-list">
+                        <li>Taxonomy: Developed structured classification systems to organize information effectively.</li>
+                        <li>AI Chatbot Solutions: Implemented AI-driven chatbots to simplify user interactions and enhance customer experience.</li>
+                        <li>Transcription and Content Classification: Utilized transcription services for video content to enable accurate content classification.</li>
+                        <li>Business Process Automation: Leveraged generative AI to automate business processes, improving efficiency and accuracy.</li>
+                        <li>Text Classification: Applied AI techniques to categorize and manage large volumes of text data.</li>
+                        <li>Cognos: Utilized IBM Cognos for advanced analytics and business intelligence reporting.</li>
+                    </ul>
+                </div>
+                <div class="experience-item fade-in">
+                    <h3>Data Annotator Intern</h3>
+                    <h4>Lesoko Technology</h4>
+                    <p class="experience-duration">August 2023 - October 2023</p>
+                    <ul class="experience-list">
+                        <li>Contributed to a project focused on solar panel image annotation and object detection, acquiring hands-on experience in computer vision techniques.</li>
+                        <li>Documented annotation procedures and results, offering valuable insights for project evaluation and future optimizations.</li>
+                        <li>Worked on detecting defective solar panels by capturing images through drones and training the data using deep learning techniques.</li>
+                        <li>Utilized libraries such as NumPy, Pandas, and Matplotlib for data processing, analysis, and visualization to accurately identify defects.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-item fade-in">
+                    <h3>Walmart Superstore Sales Analysis</h3>
+                    <p>Designed and developed an interactive dashboard using Power BI to visualize and analyze key business metrics, enhancing data-driven decision-making.</p>
+                    <p>Translated business requirements into effective visualizations, improving insights and usability.</p>
+                    <p>Utilized Power BI to create intuitive dashboards, increasing stakeholder engagement and reducing inquiry response time by 40%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category fade-in">
+                    <h3>Data Analysis & Reporting</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Excel</span>
+                        <span class="skill-item">Power Query</span>
+                        <span class="skill-item">DAX Calculation</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Business Intelligence & Data Visualization</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Tableau</span>
+                        <span class="skill-item">Power BI</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Data Integration & Processing</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">NumPy</span>
+                        <span class="skill-item">Pandas</span>
+                        <span class="skill-item">ETL (Extract, Transform, Load)</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Data Visualization</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Matplotlib</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="certifications" class="section">
+        <div class="container">
+            <div class="section-title">
                 <h2>Certifications</h2>
-                <div class="experience-item">
-                    <h3>IBM Watsonx.ai Sales Foundation</h3>
-                    <div class="date-location">IBM Data and AI | 2024</div>
-                </div>
-                <div class="experience-item">
-                    <h3>IBM Watson Assistant Sales Foundation</h3>
-                    <div class="date-location">IBM Data and AI | 2024</div>
-                </div>
-            </section>
-        </main>
-
-        <div class="chat-toggle" onclick="toggleChat()">
-            <i class="fas fa-comments"></i>
-        </div>
-
-        <div class="chatbot-container">
-            <div class="chatbot-header">
-                <span>AI Assistant</span>
-                <i class="fas fa-times" onclick="toggleChat()"></i>
             </div>
-            <div id="suggestions"></div>
-            <div class="chatbot-messages" id="chatMessages"></div>
-            <div class="chatbot-input">
-                <input type="text" id="userInput" placeholder="Ask about Anurudh's profile...">
-                <button onclick="sendMessage()">Send</button>
+            <div class="certifications-list">
+                <div class="certification-item fade-in">
+                    <h3>Agile Project Management with Jira Cloud: 1 Projects, Boards & Issues</h3>
+                </div>
+                <div class="certification-item fade-in">
+                    <h3>Lean Six Sigma Foundation</h3>
+                </div>
+                <div class="certification-item fade-in">
+                    <h3>Watsonx.ai Sales Foundation</h3>
+                </div>
+                <div class="certification-item fade-in">
+                    <h3>Watsonx Assistant Sales Foundation</h3>
+                </div>
+                <div class="certification-item fade-in">
+                    <h3>Understanding AI Chatbot Solutions</h3>
+                </div>
+                <div class="certification-item fade-in">
+                    <h3>Business Analytics with Digital Marketing Program</h3>
+                </div>
             </div>
         </div>
+    </section>
+   
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Sticky Navbar on Scroll
+            window.addEventListener("scroll", function () {
+                const navbar = document.querySelector(".navbar");
+                navbar.classList.toggle("scrolled", window.scrollY > 50);
+            });
         
-        <script>
-            let chatVisible = false;
-        
-            // FAQ Data
-            const faqData = {
-                skills: [
-                    "IBM Watsonx",
-                    "Watson Orchestrate",
-                    "IBM Instana",
-                    "IBM DataCap",
-                    "Power BI",
-                    "SQL",
-                    "Data Analytics"
-                ],
-                contact: {
-                    email: "anurudhba21@gmail.com",
-                    phone: "9486873493",
-                    linkedin: "https://linkedin.com/in/anurudh-b-a-37b121139/",
-                    github: "https://github.com/anurudhba21"
-                },
-                noticePeriod: "Available to join immediately",
-                projects: [
-                    {
-                        name: "Walmart Superstore Sales Analysis",
-                        description: "Interactive Power BI dashboard for business metrics visualization",
-                        technologies: ["Power BI", "DAX", "SQL", "Excel"]
+            // Smooth Scroll for Navigation Links
+            document.querySelectorAll('.navbar-links a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const section = document.querySelector(this.getAttribute('href'));
+                    if (section) {
+                        window.scrollTo({
+                            top: section.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
                     }
-                ],
-                certifications: [
-                    "IBM Watsonx.ai Sales Foundation",
-                    "IBM Watson Assistant Sales Foundation"
-                ],
-                education: {
-                    mba: {
-                        degree: "MBA in Business Analytics",
-                        institution: "SRM Institute of Science and Technology",
-                        year: "2023",
-                        cgpa: "8.58"
-                    },
-                    bsc: {
-                        degree: "B.Sc in Computer Science",
-                        institution: "SRM Institute of Science and Technology",
-                        year: "2018"
+                });
+            });
+        
+            // Mobile Menu Toggle
+            const toggleButton = document.querySelector(".navbar-toggle");
+            const navbarLinks = document.querySelector(".navbar-links");
+        
+            toggleButton.addEventListener("click", function () {
+                navbarLinks.classList.toggle("active");
+            });
+        
+            // Scroll to Top Button
+            const scrollTopBtn = document.createElement("div");
+            scrollTopBtn.classList.add("scroll-top");
+            scrollTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+            document.body.appendChild(scrollTopBtn);
+        
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > 300) {
+                    scrollTopBtn.classList.add("active");
+                } else {
+                    scrollTopBtn.classList.remove("active");
+                }
+            });
+        
+            scrollTopBtn.addEventListener("click", function () {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        
+            // Reveal Animations on Scroll
+            const fadeInElements = document.querySelectorAll(".fade-in");
+        
+            function revealOnScroll() {
+                fadeInElements.forEach((el) => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 100) {
+                        el.classList.add("visible");
                     }
-                }
-            };
-        
-            // Toggle Chat Visibility
-            function toggleChat() {
-                const chatbot = document.querySelector('.chatbot-container');
-                chatVisible = !chatVisible;
-                chatbot.style.display = chatVisible ? 'flex' : 'none';
-        
-                if (chatVisible) initializeChat();
-            }
-        
-            // Initialize Chat with Greeting
-            function initializeChat() {
-                setTimeout(() => {
-                    addBotMessage("Hi! I'm Ruth 🤖, your AI assistant. How can I help you learn more about Anurudh?");
-                    showSuggestedQuestions();
-                }, 500);
-            }
-        
-            // Add Message to Chat
-            function addMessage(message, isBot = true) {
-                const messagesDiv = document.getElementById('chatMessages');
-                const messageElement = document.createElement('div');
-                messageElement.classList.add(isBot ? 'bot-message' : 'user-message');
-                messageElement.textContent = message;
-                messagesDiv.appendChild(messageElement);
-                scrollToBottom(messagesDiv);
-            }
-        
-            // Add Bot Message with Typing Indicator
-            function addBotMessage(message) {
-                const messagesDiv = document.getElementById('chatMessages');
-                const typingIndicator = createTypingIndicator();
-                messagesDiv.appendChild(typingIndicator);
-        
-                setTimeout(() => {
-                    messagesDiv.removeChild(typingIndicator);
-                    addMessage(message, true);
-                }, 1000);
-            }
-        
-            // Create Typing Indicator
-            function createTypingIndicator() {
-                const typingIndicator = document.createElement('div');
-                typingIndicator.textContent = 'Ruth is typing...';
-                typingIndicator.classList.add('typing-indicator');
-                return typingIndicator;
-            }
-        
-            // Scroll Chat to Bottom
-            function scrollToBottom(container) {
-                container.scrollTop = container.scrollHeight;
-            }
-        
-            // Handle Bot Response
-            function handleBotResponse(userMessage) {
-                const lowerMessage = userMessage.toLowerCase();
-                let response;
-        
-                if (lowerMessage.includes('skills')) {
-                    response = `Anurudh's key skills include: ${faqData.skills.join(", ")}.`;
-                } else if (lowerMessage.includes('contact')) {
-                    response = `Contact Details:\nEmail: ${faqData.contact.email}\nPhone: ${faqData.contact.phone}\nLinkedIn: ${faqData.contact.linkedin}\nGitHub: ${faqData.contact.github}`;
-                } else if (lowerMessage.includes('notice period')) {
-                    response = `Anurudh's notice period: ${faqData.noticePeriod}`;
-                } else if (lowerMessage.includes('projects')) {
-                    response = faqData.projects
-                        .map(p => `${p.name}: ${p.description} (Technologies: ${p.technologies.join(", ")})`)
-                        .join("\n");
-                } else if (lowerMessage.includes('certifications')) {
-                    response = `Anurudh holds the following certifications: ${faqData.certifications.join(", ")}.`;
-                } else if (lowerMessage.includes('education')) {
-                    response = `Education:\n- ${faqData.education.mba.degree} from ${faqData.education.mba.institution} (${faqData.education.mba.year}, CGPA: ${faqData.education.mba.cgpa})\n- ${faqData.education.bsc.degree} from ${faqData.education.bsc.institution} (${faqData.education.bsc.year})`;
-                } else {
-                    response = "I'm sorry, I couldn't find any information related to that. Try asking about skills, contact, notice period, projects, certifications, or education.";
-                }
-        
-                return response;
-            }
-        
-            // Send Message
-            function sendMessage() {
-                const userInput = document.getElementById('userInput').value.trim();
-        
-                if (userInput) {
-                    addMessage(userInput, false);
-                    document.getElementById('userInput').value = ''; // Clear input field
-        
-                    setTimeout(() => {
-                        const response = handleBotResponse(userInput);
-                        addBotMessage(response);
-                    }, 500);
-                } else {
-                    alert("Please enter a message to continue.");
-                }
-            }
-        
-            // Display Suggested Questions
-            function showSuggestedQuestions() {
-                const suggestionsDiv = document.getElementById('suggestions');
-                const questions = [
-                    "What are Anurudh's skills?",
-                    "How can I contact Anurudh?",
-                    "What is Anurudh's notice period?",
-                    "What projects has Anurudh worked on?",
-                    "What certifications does Anurudh have?",
-                    "Can you tell me about Anurudh's education?"
-                ];
-        
-                suggestionsDiv.innerHTML = ''; // Clear existing suggestions
-        
-                questions.forEach(question => {
-                    const button = document.createElement('button');
-                    button.textContent = question;
-                    button.classList.add('suggested-question');
-                    button.onclick = () => {
-                        document.getElementById('userInput').value = question;
-                        sendMessage();
-                        clearSuggestions();
-                    };
-                    suggestionsDiv.appendChild(button);
                 });
             }
         
-            // Clear Suggested Questions
-            function clearSuggestions() {
-                document.getElementById('suggestions').innerHTML = '';
+            window.addEventListener("scroll", revealOnScroll);
+            revealOnScroll(); // Run initially
+        
+            // Profile Image Hover Effect
+            const profileImage = document.querySelector(".profile-image");
+            if (profileImage) {
+                profileImage.addEventListener("mouseenter", function () {
+                    this.style.transform = "scale(1.08)";
+                    this.style.transition = "transform 0.3s ease";
+                });
+                profileImage.addEventListener("mouseleave", function () {
+                    this.style.transform = "scale(1)";
+                });
             }
+        });
         </script>
-                
         
-        
-    </body>
-    </html>
