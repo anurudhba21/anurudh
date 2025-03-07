@@ -115,21 +115,8 @@ function toggleChat() {
   chatContainer.classList.toggle("active");
 }
 
-// Greet user when chat is opened
-function greetUser() {
-  const chatBody = document.getElementById("chat-body");
-  const botMessage = document.createElement("div");
-  botMessage.className = "chat-message bot";
-  botMessage.textContent = "Hi! I'm Ruth, your resume assistant. Ask me anything about Anurudh's background.";
-  chatBody.appendChild(botMessage);
+// Toggle mobile navigation
+function toggleNav() {
+  const navbarLinks = document.getElementById("navbar-links");
+  navbarLinks.classList.toggle("active");
 }
-
-// Initialize chatbot
-function initChatbot() {
-  const chatContainer = document.getElementById("chat-container");
-  chatContainer.classList.add("active");
-  greetUser();
-}
-
-// Initialize chatbot when the page loads
-window.onload = initChatbot;
