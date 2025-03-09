@@ -428,7 +428,16 @@ ul {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
 }
+.certification-item a, .project-item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
 
+.certification-item:hover, .project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
 .certification-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
